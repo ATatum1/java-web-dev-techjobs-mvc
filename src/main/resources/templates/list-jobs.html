@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head">
 </head>
-<body>
+<body class="container">
 
 <div th:replace="fragments :: page-header"></div>
 
@@ -10,8 +10,48 @@
 
     <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
 
-    <!-- TODO #1 - Use a loop to display job results in a table. -->
+    <!-- TODO #1 - Use a loop to display job results in a table. --> <!--check in ListController to find the variable names available to the template.-->
 
+
+
+    <table class="job-listing">
+
+
+        <tr th:each="job : ${jobs}">
+            <!--            <th>-->
+            <!--                <p-->
+            <!--            </th>-->
+            <td>
+
+                <p th:text="${'ID: '+ job.id}">
+                <p th:text="${'Name: '+ job.name}">
+                <p th:text="${'Employer: '+ job.employer}">
+                <p th:text="${'Location: '+ job.location}">
+                <p th:text="${'Position Type: '+ job.positionType}">
+                <p th:text="${'Skill: '+ job.coreCompetency}">
+
+                </p>
+            </td>
+            <td>
+                <!--                <th th:text="${job.name}"></th>-->
+            </td>
+
+
+            <!--            <th th:text="ID"></th>-->
+            <!--            <td th:text="${job.id}"></td>-->
+            <!--            <td th:text="${job.name}"></td>-->
+
+            <!--            <tc text="${job.id}"></tc>-->
+
+            <!--            <tr th:text="${job.name}"></tr>-->
+
+            <!--            <td th:text="${job.name}">Name</th>-->
+
+        </tr>
+
+        <!--        <td><span th:text="${Reports.id}" th:value="${Reports.id}">Id</span> </td>-->
+
+    </table>
 </div>
 
 </body>
